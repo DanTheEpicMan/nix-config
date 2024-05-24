@@ -1,0 +1,7 @@
+Common Commands that might be needed (so I dont loose them):
+
+Move files from /etc/nixos into ~/nix-config witch is were the git repo is
+cp /etc/nixos* ~/nix-config
+
+Moving the files back (should work for now until I add folders)
+cp ~/nix-config/*.nix /etc/nixos
