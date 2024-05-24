@@ -4,7 +4,7 @@ Move files from /etc/nixos into ~/nix-config witch is were the git repo is
 cp /etc/nixos* ~/nix-config
 
 Moving the files back (should work for now until I add folders)
-cp ~/nix-config/*.nix /etc/nixos
+sudo cp ~/nix-config/*.nix /etc/nixos
 
 build system
 sudo nixos-rebuild switch --flake /etc/nixos/#dan
