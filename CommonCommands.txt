@@ -10,3 +10,6 @@ build system
 sudo nixos-rebuild switch --flake /etc/nixos/#dan
 Note: sudo nixos-rebuild switch --flake ~/nix-config/#dan 
 should also work but I feel like keeping it in etc
+
+new build Commands
+sudo nixos-rebuild switch --flake /etc/nixos/#dan -vvv --option eval-cache false --show-trace
