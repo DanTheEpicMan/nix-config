@@ -118,6 +118,8 @@
         ];
       })
       github-desktop
+
+      (import ./scripts/setup-nixdev-enviroment.nix { inherit pkgs; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
