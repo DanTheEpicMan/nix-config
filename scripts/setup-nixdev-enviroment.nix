@@ -6,9 +6,9 @@ pkgs.writeShellScriptBin "setup-nixdev-enviroment" ''
   cd ~/nix-config
 
   #Open terminal
-  exec $SHELL
+  exec $SHELL #Their is a chance this does nothing
 
   #Open firefox
-  firefox
+  firefox &
   
 ''
