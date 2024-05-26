@@ -1,7 +1,6 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
+#TODO: Disable GPU
+#TEMP disable stylix and switch to hyperland
+#TODO: Switch to standalong home-manager
 { inputs, config, pkgs, ... }:
 
 {
@@ -20,6 +19,7 @@
     };
   };
 
+  #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   stylix.image = ./wallpaper.png;
 
   # Bootloader.
