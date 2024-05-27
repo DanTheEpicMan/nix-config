@@ -8,7 +8,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
-      inputs.stylix.nixosModules.stylix
+      #inputs.stylix.nixosModules.stylix
     ];
 
   #Ends up being the same as https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nixos-module
@@ -20,7 +20,7 @@
   };
 
   #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-  stylix.image = ./wallpaper.png;
+  #stylix.image = ./wallpaper.png;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
