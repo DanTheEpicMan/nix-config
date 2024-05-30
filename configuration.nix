@@ -122,6 +122,8 @@
       })
       github-desktop
 
+      microsoft-edge
+
       (import ./scripts/setup-nixdev-enviroment.nix { inherit pkgs; })
   ];
 
