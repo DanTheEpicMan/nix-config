@@ -13,6 +13,3 @@ should also work but I feel like keeping it in etc
 
 new build Commands
 sudo nixos-rebuild switch --flake /etc/nixos/#dan -vvv --option eval-cache false --show-trace
-
-Look at this to switch to i3:
-https://gist.github.com/dipankardas011/1635e1ede79b98336a3c7d7a4ae3f865
