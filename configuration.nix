@@ -7,8 +7,17 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
       #inputs.stylix.nixosModules.stylix
     ];
+
+  #Ends up being the same as https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nixos-module
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      dan = import ./home.nix;
+    };
+  };
 
   #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   #stylix.image = ./wallpaper.png;
@@ -49,25 +58,25 @@
   services.xserver = {
     enable = true;
 
-    desktopManager = {
-      #enable = true;
-      xterm.enable = false;
-    };
-    displayManager = {
-      #gdm.enable = true;
-      defaultSession = "none+i3";
+    windowManager.dwm = {
+      enable = true;
+      package.pkgs.dwm = {
+        override = {
+
+        };
+        overideAttrs = {
+          src = ./dwm;
+        };
+        
+      };
     };
 
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-        i3blocks
-        i3-gaps
-      ];
-    };
+    #desktopManager = {
+      #enable = true;
+    #};
+    #displayManager = {
+      #gdm.enable = true;
+    #};
 
     layout = "us";
     xkbVariant = "";
