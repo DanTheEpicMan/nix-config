@@ -6,7 +6,6 @@
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
-      ./disableGPU.nix
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
@@ -15,14 +14,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/09112157-c41a-4a4c-a8a8-26159717938d";
+    { device = "/dev/disk/by-uuid/c7256e2b-813b-4ec5-b5c6-3de2b637c355";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1811-CB3B";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices = [ ];

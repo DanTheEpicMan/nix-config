@@ -1,0 +1,1 @@
+sudo nixos-rebuild switch --flake '/home/dan/nix-config/#dan'
