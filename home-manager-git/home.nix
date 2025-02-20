@@ -16,6 +16,8 @@
     blueberry
     neovim #git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
     gcc
+    docker
+    ssh
 
     (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [

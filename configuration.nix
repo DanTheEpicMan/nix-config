@@ -100,6 +100,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    pciutils
   ];
 
   #Enables flakes
@@ -108,6 +109,8 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
+  virtualisation.docker.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -115,6 +118,71 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  services.power-profiles-daemon.enable = true; #plasma thing
+  powerManagement.cpuFreqGovernor = "powersave";
+  services.tlp = {
+      enable = false;
+      settings = {
+        #Audio config (disables TLP audio)
+        SOUND_POWER_SAVE_ON_AC = "0";
+        SOUND_POWER_SAVE_ON_BAT = "0";
+        SOUND_POWER_SAVE_CONTROLLER = "N";
+
+        #Battery config
+        START_CHARGE_THRESH_BAT0 = "70";
+        STOP_CHARGE_THRESH_BAT0 = "80";
+
+        #Drive Bay (none)
+
+        #Disks and Controllers (Prob not needed, look into)
+
+        #Disk setting (none)
+
+        #Graphics (no invidia options)
+
+        #Kernel (none, only does NMI callback stuff)
+
+        #Wifi Power management
+        WIFI_PWR_ON_AC="off";
+        WIFI_PWR_ON_BAT="off";
+        WOL_DISABLE="Y"; #wake on lan disable
+
+        #Platform bat
+        PLATFORM_PROFILE_ON_AC="performance";
+        PLATFORM_PROFILE_ON_BAT="balanced";
+        #MEM_SLEEP_ON_AC=s2idle #idk what does
+        #MEM_SLEEP_ON_BAT=deep
+
+        #CPU (complex, do later)
+
+        #Radio devices (wifi)
+        RESTORE_DEVICE_STATE_ON_STARTUP = "1"; #keeps on        
+
+        #PCI stuff
+        #RUNTIME_PM_DISABLE = "";
+
+        #USB settings
+        USB_AUTOSUSPEND = "0";
+
+        #Recomended CPU config
+        #CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        #CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        #CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        #CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        #CPU_MIN_PERF_ON_AC = 0;
+        #CPU_MAX_PERF_ON_AC = 100;
+        #CPU_MIN_PERF_ON_BAT = 0;
+        #CPU_MAX_PERF_ON_BAT = 20;
+
+       #Optional helps save long term battery health
+       #START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+       #STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+
+      };
+    };
 
   # List services that you want to enable:
 
